@@ -1,7 +1,9 @@
+/Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/IProxy.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Ruta.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Echo.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/IUsuario.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/UserFactory.java
+/Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Proxy.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Administrador.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Conductor.java
 /Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/src/main/java/com/example/echo/Message.java
