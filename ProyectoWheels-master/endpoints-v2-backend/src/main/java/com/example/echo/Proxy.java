@@ -76,7 +76,6 @@ public class Proxy implements IProxy {
 // [END echo_method]
     
  // [START proxy]
-    @ApiMethod(name = "proxy")
     public Proxy() {
     }
  // [END proxy]
