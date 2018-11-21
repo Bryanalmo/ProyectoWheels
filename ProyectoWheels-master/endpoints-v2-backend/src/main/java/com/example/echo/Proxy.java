@@ -139,5 +139,3 @@ public class Proxy implements IProxy {
     }
     // [END firebase_auth]
   }
-
-}
