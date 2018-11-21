@@ -3,6 +3,7 @@ package com.example.echo;
 import java.util.ArrayList;
 
 public class Ruta {
+	private String identificador;
 	private String idConductor;
 	private int numPuestos;
 	private String placa;
@@ -10,10 +11,11 @@ public class Ruta {
 	private String fin;
 	private String hora;
 	private ArrayList<Polyline> polilineas;
-	
-	public Ruta(String idConductor, int numPuestos, String placa, String inicio, String fin, String hora,
-			ArrayList<Polyline> polilineas) {
+
+	public Ruta(String identificador, String idConductor, int numPuestos, String placa, String inicio, String fin,
+			String hora, ArrayList<Polyline> polilineas) {
 		super();
+		this.identificador = identificador;
 		this.idConductor = idConductor;
 		this.numPuestos = numPuestos;
 		this.placa = placa;
@@ -22,6 +24,26 @@ public class Ruta {
 		this.hora = hora;
 		this.polilineas = polilineas;
 	}
+	
+	public void addPolyline(String inicio, String fin) {
+		Polyline polyline = new Polyline(inicio, fin);
+		this.polilineas.add(polyline);
+	}
+
+
+	
+
+	public String getIdentificador() {
+		return identificador;
+	}
+
+
+
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
 
 
 

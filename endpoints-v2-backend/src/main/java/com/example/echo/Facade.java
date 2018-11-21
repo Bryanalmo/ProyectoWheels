@@ -63,24 +63,31 @@ public class Facade {
 	//BRYAN A
 	@ApiParam
 	private ArrayList<Ruta> rutas = new ArrayList<>();
-  
-  // [START echo_method]
-  @ApiMethod(name = "echo2")
-  public Message echo2(Message message, @Named("n") @Nullable Integer n) {
-	  
-    return doEcho(message, n);
-  }
-  // [END echo_method]
  
   // [START crearRuta]
   @ApiMethod(name = "crear_rutas")
-  public void crearRuta(@Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
-		  				   @Named("placa") String placa, @Named("ptoSalida") String ptoSalida,
-		  				   @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
-	  Ruta ruta = new Ruta(idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora, new ArrayList<>()); 
+  public void crearRuta(@Named("identificador") String identificador,@Named("idConductor") String idConductor,
+		  				@Named("numeroPuestos") int numeroPuestos, @Named("placa") String placa,
+		  				@Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
+	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora, new ArrayList<>()); 
       rutas.add(ruta);
   }
   // [END crearRuta]
+  
+//[START add_polyline]
+ @ApiMethod(name = "add_polyline")
+ public Ruta addPolyline(@Named("identificador") String identificador, @Named("inicio") String inicio,
+		 @Named("fin") String fin) {
+	 for (int i = 0; i < rutas.size(); i++) {
+         if (rutas.get(i).getIdentificador().equals(identificador)) {
+             Ruta ruta = rutas.get(i);
+             ruta.addPolyline(inicio, fin);
+             return ruta;
+         }
+     }
+	 return null;
+ }
+ // [END add_polyline]
   
 //[START buscarRuta]
  @ApiMethod(name = "buscar_ruta")
@@ -95,20 +102,6 @@ public class Facade {
  }
  // [END buscarRuta]
  
-  private Message doEcho(Message message, Integer n) {
-    if (n != null && n >= 0) {
-      StringBuilder sb = new StringBuilder();
-      for (int i = 0; i < n; i++) {
-        if (i > 0) {
-          sb.append(" ");
-        }
-        sb.append(message.getMessage());
-      }
-      message.setMessage(sb.toString());
-    }
-    return message;
-  }
-  
   
 
   /**
