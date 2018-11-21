@@ -110,15 +110,15 @@ public void eliminarRuta(@Named("idConductor") String idConductor) {
  
 //[START iniciarSesion]
 @ApiMethod(name = "iniciar_sesion")
-public Usuario confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
+public String iniciarSesion(@Named("correo") String correo, @Named("password") String password) {
 	Usuario user = null;
 	user.setNombre("Juan");
 	user.setCorreo("123");
 	user.setPassword("123");
     if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
-       return user;
+       return "Ingreso exitoso";
     }
-    return null;
+    return "Ingreso NO exitoso";
 }
 // [END iniciarSesion]
 
