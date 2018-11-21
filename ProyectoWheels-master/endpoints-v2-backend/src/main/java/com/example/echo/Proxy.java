@@ -66,5 +66,81 @@ public class Proxy implements IProxy {
         return null;
     }
   // [END iniciarSesion]
+    
+    private Message doEcho(Message message, Integer n) {
+        if (n != null && n >= 0) {
+          StringBuilder sb = new StringBuilder();
+          for (int i = 0; i < n; i++) {
+            if (i > 0) {
+              sb.append(" ");
+            }
+            sb.append(message.getMessage());
+          }
+          message.setMessage(sb.toString());
+        }
+        return message;
+      }
+
+    /**
+     * Gets the authenticated user's email. If the user is not authenticated, this will return an HTTP
+     * 401.
+     *
+     * <p>Note that name is not specified. This will default to "{class name}.{method name}". For
+     * example, the default is "echo.getUserEmail".
+     *
+     * <p>Note that httpMethod is not required here. Without httpMethod, this will default to GET due
+     * to the API method name. httpMethod is added here for example purposes.
+     */
+    // [START google_id_token_auth]
+    @ApiMethod(
+        httpMethod = ApiMethod.HttpMethod.GET,
+        authenticators = {EspAuthenticator.class},
+        audiences = {"YOUR_OAUTH_CLIENT_ID"},
+        clientIds = {"YOUR_OAUTH_CLIENT_ID"}
+    )
+    public Email getUserEmail(User user) throws UnauthorizedException {
+      if (user == null) {
+        throw new UnauthorizedException("Invalid credentials");
+      }
+
+      Email response = new Email();
+      response.setEmail(user.getEmail());
+      return response;
+    }
+    // [END google_id_token_auth]
+
+    /**
+     * Gets the authenticated user's email. If the user is not authenticated, this will return an HTTP
+     * 401.
+     *
+     * <p>Note that name is not specified. This will default to "{class name}.{method name}". For
+     * example, the default is "echo.getUserEmail".
+     *
+     * <p>Note that httpMethod is not required here. Without httpMethod, this will default to GET due
+     * to the API method name. httpMethod is added here for example purposes.
+     */
+    // [START firebase_auth]
+    @ApiMethod(
+        path = "firebase_user",
+        httpMethod = ApiMethod.HttpMethod.GET,
+        authenticators = {EspAuthenticator.class},
+        issuerAudiences = {
+            @ApiIssuerAudience(
+                name = "firebase",
+                audiences = {"YOUR-PROJECT-ID"}
+            )
+        }
+    )
+    public Email getUserEmailFirebase(User user) throws UnauthorizedException {
+      if (user == null) {
+        throw new UnauthorizedException("Invalid credentials");
+      }
+
+      Email response = new Email();
+      response.setEmail(user.getEmail()+"123");
+      return response;
+    }
+    // [END firebase_auth]
+  }
 
 }
