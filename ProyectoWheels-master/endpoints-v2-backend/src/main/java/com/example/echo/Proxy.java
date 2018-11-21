@@ -75,18 +75,13 @@ public class Proxy implements IProxy {
     }
 // [END echo_method]
     
- // [START proxy]
     public Proxy() {
     }
- // [END proxy]
-    
- // [START reemplazarConstructora]
-    @ApiMethod(name = "reemplazar_constructora")
+   
     public static Proxy reemplazarConstructora(){
         if (proxy == null )proxy = new Proxy();
         return proxy;
     }
- // [END reemplazarConstructora]
     
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
