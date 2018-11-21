@@ -73,11 +73,11 @@ public class Facade {
   // [END echo_method]
  
   // [START crearRuta]
-  @ApiMethod(name = "crear_ruta")
+  @ApiMethod(name = "crear_rutas")
   public void crearRuta(@Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
 		  				   @Named("placa") String placa, @Named("ptoSalida") String ptoSalida,
-		  				   @Named("ptoDestino") String ptoDestino, @Named("hora") String hora, @Named("polilineas") ArrayList<Polyline> polilineas) {
-	  Ruta ruta = new Ruta(idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora, polilineas); 
+		  				   @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
+	  Ruta ruta = new Ruta(idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora, new ArrayList<>()); 
       rutas.add(ruta);
   }
   // [END crearRuta]

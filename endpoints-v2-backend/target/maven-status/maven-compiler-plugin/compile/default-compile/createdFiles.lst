@@ -9,4 +9,5 @@ com\example\echo\Message.class
 com\example\echo\Ruta.class
 com\example\echo\Administrador.class
 com\example\echo\Facade.class
+com\example\echo\Polyline.class
 com\example\echo\AdministradorAdapter.class
