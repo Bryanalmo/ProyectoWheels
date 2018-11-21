@@ -99,6 +99,18 @@ public class Facade {
  }
  // [END buscarRuta]
  
+//[START eliminarRuta]
+@ApiMethod(name = "eliminar_ruta")
+public void eliminarRuta(@Named("idConductor") String idConductor) {
+	 for (int i = 0; i < rutas.size(); i++) {
+        if (rutas.get(i).getIdConductor().equals(idConductor)) {
+            rutas.remove(i);
+        }
+    }
+	 return null;
+}
+// [END eliminarRuta]
+ 
   private Message doEcho(Message message, Integer n) {
     if (n != null && n >= 0) {
       StringBuilder sb = new StringBuilder();
