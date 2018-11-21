@@ -2,6 +2,7 @@ com\example\echo\Usuario.class
 com\example\echo\Conductor.class
 com\example\echo\Echo.class
 com\example\echo\Pasajero.class
+com\example\echo\Polilineas.class
 com\example\echo\UserFactory.class
 com\example\echo\Email.class
 com\example\echo\IUsuario.class

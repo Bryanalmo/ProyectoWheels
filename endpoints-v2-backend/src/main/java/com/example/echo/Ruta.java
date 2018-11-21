@@ -10,10 +10,10 @@ public class Ruta {
 	private String inicio;
 	private String fin;
 	private String hora;
-	private ArrayList<Polyline> polilineas;
+	private Polilineas polilineas;
 
 	public Ruta(String identificador, String idConductor, int numPuestos, String placa, String inicio, String fin,
-			String hora, ArrayList<Polyline> polilineas) {
+			String hora, Polilineas polilineas) {
 		super();
 		this.identificador = identificador;
 		this.idConductor = idConductor;
@@ -24,13 +24,6 @@ public class Ruta {
 		this.hora = hora;
 		this.polilineas = polilineas;
 	}
-	
-	public void addPolyline(String inicio, String fin) {
-		Polyline polyline = new Polyline(inicio, fin);
-		this.polilineas.add(polyline);
-	}
-
-
 	
 
 	public String getIdentificador() {
@@ -121,23 +114,24 @@ public class Ruta {
 
 
 
-	public ArrayList<Polyline> getPolilineas() {
+	public Polilineas getPolilineas() {
 		return polilineas;
 	}
 
 
 
-	public void setPolilineas(ArrayList<Polyline> polilineas) {
+	public void setPolilineas(Polilineas polilineas) {
 		this.polilineas = polilineas;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Ruta [idConductor=" + idConductor + ", numPuestos=" + numPuestos + ", placa=" + placa + ", inicio="
-				+ inicio + ", fin=" + fin + ", hora=" + hora + "]";
+		return "Ruta [identificador=" + identificador + ", idConductor=" + idConductor + ", numPuestos=" + numPuestos
+				+ ", placa=" + placa + ", inicio=" + inicio + ", fin=" + fin + ", hora=" + hora + ", polilineas="
+				+ polilineas + "]";
 	}
+
+	
 
 	
 	
