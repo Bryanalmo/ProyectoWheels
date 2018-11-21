@@ -107,20 +107,6 @@ public void eliminarRuta(@Named("idConductor") String idConductor) {
     }
 }
 // [END eliminarRuta]
- 
-//[START iniciarSesion]
-@ApiMethod(name = "iniciar_sesion")
-public String iniciarSesion(@Named("correo") String correo, @Named("password") String password) {
-	Usuario user = null;
-	user.setNombre("Juan");
-	user.setCorreo("123");
-	user.setPassword("123");
-    if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
-       return "Ingreso exitoso";
-    }
-    return "Ingreso NO exitoso";
-}
-// [END iniciarSesion]
 
   private Message doEcho(Message message, Integer n) {
     if (n != null && n >= 0) {
