@@ -72,7 +72,7 @@ public class Proxy implements IProxy {
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
     public Usuario confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
-    	Usuario user = new Usuario;
+    	Usuario user = null;
     	user.setNombre("Juan");
     	user.setCorreo("123");
     	user.setPassword("123");
