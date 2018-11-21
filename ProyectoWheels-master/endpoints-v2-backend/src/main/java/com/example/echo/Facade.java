@@ -107,7 +107,6 @@ public void eliminarRuta(@Named("idConductor") String idConductor) {
             rutas.remove(i);
         }
     }
-	 return null;
 }
 // [END eliminarRuta]
  
