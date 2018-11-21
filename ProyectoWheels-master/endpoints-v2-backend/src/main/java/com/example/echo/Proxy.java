@@ -25,31 +25,31 @@ package com.example.echo;
     }
 // [END_EXCLUDE]
 )
-// [END echo2_api_annotation]
+// [END echo3_api_annotation]
 
 public class Proxy implements IProxy {
 
 	@ApiParam
 	private ArrayList<Usuario> usuarios = new ArrayList<>();
 	@ApiParam
-    private static AccesoProxy proxy = null;
+    private static Proxy proxy = null;
 	@ApiParam
     private Facade facade = new Facade();
 
  // [START echo_method]
-    @ApiMethod(name = "echo2")
-    public Message echo2(Message message, @Named("n") @Nullable Integer n) {
+    @ApiMethod(name = "echo3")
+    public Message echo3(Message message, @Named("n") @Nullable Integer n) {
   	  
       return doEcho(message, n);
     }
 // [END echo_method]
     
-    public AccesoProxy() {
+    public Proxy() {
     }
     
 
-    public static AccesoProxy reemplazarConstructora(){
-        if (proxy == null )proxy = new AccesoProxy();
+    public static Proxy reemplazarConstructora(){
+        if (proxy == null )proxy = new Proxy();
         return proxy;
     }
     
