@@ -1,7 +1,22 @@
+/*
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.echo;
 
 import java.util.ArrayList;
-
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.AnnotationBoolean;
@@ -13,12 +28,12 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.Nullable;
 import com.google.api.server.spi.response.UnauthorizedException;
-
 import io.swagger.annotations.ApiParam;
 
 /**
  * The Echo API which Endpoints will be exposing.
  */
+
 // [START echo_api_annotation]
 @Api(
     name = "proxy",
@@ -60,14 +75,19 @@ public class Proxy implements IProxy {
     }
 // [END echo_method]
     
+ // [START proxy]
+    @ApiMethod(name = "proxy")
     public Proxy() {
     }
+ // [END proxy]
     
-
+ // [START reemplazarConstructora]
+    @ApiMethod(name = "reemplazar_constructora")
     public static Proxy reemplazarConstructora(){
         if (proxy == null )proxy = new Proxy();
         return proxy;
     }
+ // [END reemplazarConstructora]
     
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
