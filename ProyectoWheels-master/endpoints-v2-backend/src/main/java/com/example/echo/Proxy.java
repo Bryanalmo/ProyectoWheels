@@ -91,7 +91,7 @@ public class Proxy implements IProxy {
         if(user.getCorreo().equals(correo) && user.getPassword().equals(password)){
            return user;
         }
-        return null;
+        return user;
     }
   // [END iniciarSesion]
     
