@@ -64,6 +64,8 @@ public class Facade {
 	
 	@ApiParam
 	private ArrayList<Ruta> rutas = new ArrayList<>();
+	@ApiParam
+	private UserFactory factory = new UserFactory();
   
   // [START echo_method]
   @ApiMethod(name = "echo2")
