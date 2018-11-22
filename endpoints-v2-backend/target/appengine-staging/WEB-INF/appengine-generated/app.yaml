@@ -8,7 +8,7 @@ derived_file_type:
 threadsafe: True
 auto_id_policy: default
 env_variables:
-  'ENDPOINTS_SERVICE_NAME': 'proyectowheels3.appspot.com'
+  'ENDPOINTS_SERVICE_NAME': 'wheelsrutas.appspot.com'
 api_version: '1.0'
 handlers:
 - url: /

@@ -75,8 +75,9 @@ public class Facade {
   @ApiMethod(name = "crearRuta")
   public void crearRuta(@Named("identificador") String identificador,@Named("idConductor") String idConductor,
 		  				@Named("numeroPuestos") int numeroPuestos, @Named("placa") String placa,
-		  				@Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
-	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora); 
+		  				@Named("xInicio") double xInicio, @Named("yInicio") double yInicio,
+		  				@Named("xFin") double xFin,@Named("yFin") double yFin,@Named("hora") String hora) {
+	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, xInicio, yInicio, xFin, yFin, hora); 
       rutas.add(ruta);
   }
   // [END crearRuta]
