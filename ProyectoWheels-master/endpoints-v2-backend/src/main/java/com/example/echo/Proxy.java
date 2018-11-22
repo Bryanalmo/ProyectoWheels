@@ -90,7 +90,7 @@ public class Proxy implements IProxy {
     	user.setNombre("Juan");
     	user.setCorreo("abc");
     	user.setPassword("123");
-        if(correo.equals("abc") && password.equals("123") ){
+        if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
            return user;
         }
         return user;
