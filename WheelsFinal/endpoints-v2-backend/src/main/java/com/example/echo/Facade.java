@@ -85,12 +85,17 @@ public class Facade {
 	// [START modificarRuta]
 	
 	@ApiMethod(name = "modificar_ruta")
-	public Ruta modificarRuta(@Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
+	public Ruta modificarRuta( @Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
 			@Named("placa") String placa, @Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino,
 			@Named("hora") String hora) {
 		for (int i = 0; i < rutas.size(); i++) {
 			if (rutas.get(i).getIdConductor().equals(idConductor)) {
-				rutas.get(i).getIdConductor();
+				rutas.get(i).setIdConductor(idConductor);
+				rutas.get(i).setPlaca(placa);
+				rutas.get(i).setNumPuestos(numeroPuestos);
+				rutas.get(i).setInicio(ptoSalida);
+				rutas.get(i).setFin(ptoDestino);
+				rutas.get(i).setHora(hora);
 				
 			}
 			
