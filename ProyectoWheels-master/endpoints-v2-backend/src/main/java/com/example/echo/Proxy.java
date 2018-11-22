@@ -61,8 +61,6 @@ import io.swagger.annotations.ApiParam;
 public class Proxy implements IProxy {
 
 	@ApiParam
-	private ArrayList<Usuario> usuarios = new ArrayList<>();
-	@ApiParam
     private static Proxy proxy = null;
 	@ApiParam
     private Facade facade = new Facade();
@@ -90,7 +88,7 @@ public class Proxy implements IProxy {
     	user.setNombre("Juan");
     	user.setCorreo("123");
     	user.setPassword("123");
-        if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
+        if(user.getCorreo().equals(correo) && user.getPassword().equals(password)){
            return user;
         }
         return null;
