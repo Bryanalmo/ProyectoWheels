@@ -70,9 +70,9 @@ public class Facade {
 
 //[START buscarRuta]
 	@ApiMethod(name = "buscar_ruta")
-	public Ruta buscarRuta(@Named("idConductor") String idConductor) {
+	public Ruta buscarRuta(@Named("idConductor") String idConductor,@Named("hora") String hora ) {
 		for (int i = 0; i < rutas.size(); i++) {
-			if (rutas.get(i).getIdConductor().equals(idConductor)) {
+			if (rutas.get(i).getIdConductor().equals(idConductor) && rutas.get(i).getHora().equals(hora) ) {
 				Ruta ruta = rutas.get(i);
 				return ruta;
 			}
@@ -89,7 +89,7 @@ public class Facade {
 			@Named("placa") String placa, @Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino,
 			@Named("hora") String hora) {
 		for (int i = 0; i < rutas.size(); i++) {
-			if (rutas.get(i).getIdConductor().equals(idConductor)) {
+			if (rutas.get(i).getIdConductor().equals(idConductor) && rutas.get(i).getHora().equals(hora)) {
 				rutas.get(i).setIdConductor(idConductor);
 				rutas.get(i).setPlaca(placa);
 				rutas.get(i).setNumPuestos(numeroPuestos);
@@ -104,6 +104,7 @@ public class Facade {
 	}
 
 	// [END modificarRuta]
+
 	private Message doEcho(Message message, Integer n) {
 		if (n != null && n >= 0) {
 			StringBuilder sb = new StringBuilder();
