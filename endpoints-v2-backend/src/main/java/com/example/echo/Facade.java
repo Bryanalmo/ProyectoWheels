@@ -34,6 +34,7 @@ import com.google.appengine.repackaged.com.google.gson.JsonArray;
 import com.google.appengine.repackaged.com.google.gson.JsonObject;
 
 import endpoints.repackaged.com.google.gson.Gson;
+import endpoints.repackaged.google.type.LatLng;
 import endpoints.repackaged.org.jose4j.json.internal.json_simple.JSONArray;
 import endpoints.repackaged.org.jose4j.json.internal.json_simple.JSONObject;
 import io.swagger.annotations.ApiParam;
@@ -71,7 +72,7 @@ public class Facade {
 	private ArrayList<Ruta> rutas = new ArrayList<>();
 	
   // [START crearRuta]
-  @ApiMethod(name = "crear_ruta")
+  @ApiMethod(name = "crearRuta")
   public void crearRuta(@Named("identificador") String identificador,@Named("idConductor") String idConductor,
 		  				@Named("numeroPuestos") int numeroPuestos, @Named("placa") String placa,
 		  				@Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino, @Named("hora") String hora,
@@ -80,21 +81,10 @@ public class Facade {
       rutas.add(ruta);
   }
   // [END crearRuta]
- /* 
-//[START add_polyline]
- @ApiMethod(name = "add_polyline")
- public void addPolyline(@Named("identificador") String identificador, @Named("inicio") String inicio, @Named("fin") String fin) {
-	 for (int i = 0; i < rutas.size(); i++) {
-         if (rutas.get(i).getIdentificador().equals(identificador)) {
-             Ruta ruta = rutas.get(i);
-             ruta.addPolyline(inicio, fin);
-         }
-     }
- }
- // [END add_polyline]*/
+
   
 //[START buscarRuta]
- @ApiMethod(name = "buscar_rut")
+ @ApiMethod(name = "buscarRuta")
  public Ruta buscarRutas(@Named("idConductor") String idConductor) {
 	 for (int j = 0; j < rutas.size(); j++) {
          if (rutas.get(j).getIdConductor().equals(idConductor)) {
@@ -105,31 +95,15 @@ public class Facade {
 	 return null;
  }
  // [END buscarRuta]
-  
-  /*
+ 
 //[START buscarRuta]
- @ApiMethod(name = "buscar_ruta")
- public JSONObject buscarRutas(@Named("idConductor") String idConductor) {
-	 for (int j = 0; j < rutas.size(); j++) {
-         if (rutas.get(j).getIdConductor().equals(idConductor)) {
-             Ruta ruta = rutas.get(j);
-             JSONObject rutaJson = new JSONObject();
-             rutaJson.put("identificador", ruta.getIdentificador());
-             rutaJson.put("idConductor", ruta.getIdConductor());
-             rutaJson.put("numPuestos", ruta.getNumPuestos());
-             rutaJson.put("placa", ruta.getPlaca());
-             rutaJson.put("inicio", ruta.getInicio());
-             rutaJson.put("fin", ruta.getFin());
-             rutaJson.put("hora", ruta.getHora());
-             ArrayList<Polyline> polilineas = ruta.getPolilineas().getPolilineas();
-             JSONArray polilineasJson =  new JSONArray(Arrays.asList(polilineas));
-             rutaJson.put("polilineas", polilineas);
-             return rutaJson;
-         }
-     }
-	 return null;
- }
- // [END buscarRuta]*/
+@ApiMethod(name = "listar_rutas")
+public ArrayList<Ruta> listarRutas() {
+	 return rutas;
+}
+// [END buscarRuta]
+  
+ 
  
   
 

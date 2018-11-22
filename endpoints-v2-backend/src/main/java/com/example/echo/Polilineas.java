@@ -6,9 +6,7 @@ public class Polilineas {
 	
 	private ArrayList<Polyline> polilineas;
 	
-	public Polilineas() {
-		
-	}
+	public Polilineas() {}
 
 	public Polilineas(ArrayList<Polyline> polilineas) {
 		super();
@@ -22,15 +20,4 @@ public class Polilineas {
 	public void setPolilineas(ArrayList<Polyline> polilineas) {
 		this.polilineas = polilineas;
 	}
-	
-	public void add(Polyline polilinea) {
-		this.polilineas.add(polilinea);
-	}
-
-	@Override
-	public String toString() {
-		return "Polilineas [polilineas=" + polilineas + "]";
-	}
-	
-	
 }

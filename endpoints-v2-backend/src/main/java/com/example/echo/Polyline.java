@@ -1,57 +1,31 @@
 package com.example.echo;
 
-public class Polyline {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import endpoints.repackaged.google.type.LatLng;
+
+public class Polyline implements Serializable{
 	
-	private double xInicio;
-	private double xFinal;
-	private double yInicio;
-	private double yFinal;
+	
+	ArrayList<LatLngBry> polilinea;
 	
 	public Polyline() {}
 
-	public Polyline(double xInicio, double xFinal, double yInicio, double yFinal) {
+	public Polyline(ArrayList<LatLngBry> polilinea) {
 		super();
-		this.xInicio = xInicio;
-		this.xFinal = xFinal;
-		this.yInicio = yInicio;
-		this.yFinal = yFinal;
+		this.polilinea = polilinea;
 	}
 
-	public double getxInicio() {
-		return xInicio;
+	public ArrayList<LatLngBry> getPolilinea() {
+		return polilinea;
 	}
 
-	public void setxInicio(double xInicio) {
-		this.xInicio = xInicio;
+	public void setPolilinea(ArrayList<LatLngBry> polilinea) {
+		this.polilinea = polilinea;
 	}
 
-	public double getxFinal() {
-		return xFinal;
-	}
-
-	public void setxFinal(double xFinal) {
-		this.xFinal = xFinal;
-	}
-
-	public double getyInicio() {
-		return yInicio;
-	}
-
-	public void setyInicio(double yInicio) {
-		this.yInicio = yInicio;
-	}
-
-	public double getyFinal() {
-		return yFinal;
-	}
-
-	public void setyFinal(double yFinal) {
-		this.yFinal = yFinal;
-	}
-
-	
-	
-	
 	
 	
 }

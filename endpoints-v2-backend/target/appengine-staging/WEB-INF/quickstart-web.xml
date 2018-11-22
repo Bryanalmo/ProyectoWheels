@@ -28,11 +28,11 @@
     <async-supported>false</async-supported>
     <init-param origin="WebDescriptor(file:///C:/Users/nayar/git/repository/endpoints-v2-backend/target/appengine-staging/WEB-INF/web.xml):3">
       <param-name>endpoints.projectId</param-name>
-      <param-value>wheelsrutas</param-value>
+      <param-value>proyectowheels3</param-value>
     </init-param>
     <init-param origin="WebDescriptor(file:///C:/Users/nayar/git/repository/endpoints-v2-backend/target/appengine-staging/WEB-INF/web.xml):4">
       <param-name>endpoints.serviceName</param-name>
-      <param-value>wheelsrutas.appspot.com</param-value>
+      <param-value>proyectowheels3.appspot.com</param-value>
     </init-param>
   </filter>
   <filter-mapping>
