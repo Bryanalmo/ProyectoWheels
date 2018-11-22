@@ -88,9 +88,9 @@ public class Proxy implements IProxy {
     public Usuario confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
     	Usuario user = null;
     	user.setNombre("Juan");
-    	user.setCorreo("123");
+    	user.setCorreo("abc");
     	user.setPassword("123");
-        if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
+        if(correo.equals("abc") && password.equals("123") ){
            return user;
         }
         return user;
