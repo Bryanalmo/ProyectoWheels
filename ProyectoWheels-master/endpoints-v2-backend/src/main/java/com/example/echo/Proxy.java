@@ -89,7 +89,7 @@ public class Proxy implements IProxy {
     	Usuario user = new Conductor("Juan", "abc", "123");
     	/*user.setNombre("Juan");
     	user.setCorreo("abc");
-    	user.setPassword("123");
+    	user.setPassword("1234");
     	user.setTipoUsuario();*/
         if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
         	return user;
