@@ -123,6 +123,9 @@ public void eliminarRuta(@Named("idConductor") String idConductor) {
     return message;
   }
   
+  public void crearConductor(String correo, Usuario user ){
+      factory.setUsuario(correo, user);
+  }
   
 
   /**

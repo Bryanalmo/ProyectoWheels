@@ -50,7 +50,7 @@
     <servlet-class origin="WebDescriptor(file:///Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/target/appengine-staging/WEB-INF/web.xml):10">com.google.api.server.spi.EndpointsServlet</servlet-class>
     <init-param origin="WebDescriptor(file:///Users/amsoche/git/repository/ProyectoWheels-master/endpoints-v2-backend/target/appengine-staging/WEB-INF/web.xml):11">
       <param-name>services</param-name>
-      <param-value>com.example.echo.Echo,com.example.echo.Facade</param-value>
+      <param-value>com.example.echo.Echo,com.example.echo.Facade,com.example.echo.Proxy</param-value>
     </init-param>
     <async-supported>false</async-supported>
   </servlet>

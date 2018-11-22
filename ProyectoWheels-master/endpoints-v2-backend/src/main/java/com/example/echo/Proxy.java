@@ -85,18 +85,26 @@ public class Proxy implements IProxy {
         return proxy;
     }
 
+ // [START crearConductor]
+    @ApiMethod(name = "crear_conductor")
+    public void crearConductor(@Named("nombre") String nombre, @Named("correo") String correo, @Named("password") String password ){
+        Usuario usuario = new Conductor(nombre, correo, password);
+        usuarios.add(usuario);
+        facade.crearConductor(correo, usuario);
+    }
+    // [END crearConductor]
+    
     
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
     public Usuario confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
     	Usuario user = null;
-    	user.setNombre("Juan");
-    	user.setCorreo("123");
-    	user.setPassword("123");
-        if(user.getCorreo().equals(correo) && user.getPassword().equals(password) ){
-           return user;
+        for(int i=0; i<usuarios.size(); i++){
+            if(usuarios.get(i).getCorreo().equals(correo) && usuarios.get(i).getPassword().equals(password) ){
+                user = usuarios.get(i);
+            }
         }
-        return null;
+        return user;
     }
   // [END iniciarSesion]
     
