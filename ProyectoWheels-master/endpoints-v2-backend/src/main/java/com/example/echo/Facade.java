@@ -64,8 +64,6 @@ public class Facade {
 	
 	@ApiParam
 	private ArrayList<Ruta> rutas = new ArrayList<>();
-	@ApiParam
-	private UserFactory factory = new UserFactory();
   
   // [START echo_method]
   @ApiMethod(name = "echo2")
@@ -123,10 +121,6 @@ public void eliminarRuta(@Named("idConductor") String idConductor) {
       message.setMessage(sb.toString());
     }
     return message;
-  }
-  
-  public void crearConductor(String correo, Usuario user ){
-      factory.setUsuario(correo, user);
   }
   
 

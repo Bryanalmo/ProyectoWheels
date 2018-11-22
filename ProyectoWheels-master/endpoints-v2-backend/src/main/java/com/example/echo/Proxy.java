@@ -78,7 +78,6 @@ public class Proxy implements IProxy {
 
     public Proxy() {
     }
-
    
     public static Proxy reemplazarConstructora(){
         if (proxy == null )proxy = new Proxy();
@@ -90,9 +89,8 @@ public class Proxy implements IProxy {
     public void crearConductor(@Named("nombre") String nombre, @Named("correo") String correo, @Named("password") String password ){
         Usuario usuario = new Conductor(nombre, correo, password);
         usuarios.add(usuario);
-        facade.crearConductor(correo, usuario);
     }
-    // [END crearConductor]
+ // [END crearConductor]
     
     
  // [START iniciarSesion]
