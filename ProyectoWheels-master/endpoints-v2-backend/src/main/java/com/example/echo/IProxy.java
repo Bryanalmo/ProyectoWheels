@@ -1,5 +1,5 @@
 package com.example.echo;
 
 public interface IProxy {
-	public double confirmarPermisosUsuario(String correo, String password);
+	public Usuario confirmarPermisosUsuario(String correo, String password);
 }
