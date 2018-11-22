@@ -1,15 +1,31 @@
 package com.example.echo;
 
-public class Polyline {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import endpoints.repackaged.google.type.LatLng;
+
+public class Polyline implements Serializable{
 	
-	private String puntoInicio;
-	private String puntoFinal;
 	
-	public Polyline(String puntoInicio, String puntoFinal) {
+	String polilinea;
+	
+	public Polyline() {}
+
+	public Polyline(String polilinea) {
 		super();
-		this.puntoInicio = puntoInicio;
-		this.puntoFinal = puntoFinal;
+		this.polilinea = polilinea;
 	}
+
+	public String getPolilinea() {
+		return polilinea;
+	}
+
+	public void setPolilinea(String polilinea) {
+		this.polilinea = polilinea;
+	}
+
 	
 	
 }

@@ -3,119 +3,115 @@ package com.example.echo;
 import java.util.ArrayList;
 
 public class Ruta {
+	private String identificador;
 	private String idConductor;
 	private int numPuestos;
 	private String placa;
-	private String inicio;
-	private String fin;
+	private double xInicio;
+	private double yInicio;
+	private double xFin;
+	private double yFin;
 	private String hora;
-	private ArrayList<Polyline> polilineas;
+	private Polilineas polilineas;
 	
-	public Ruta(String idConductor, int numPuestos, String placa, String inicio, String fin, String hora,
-			ArrayList<Polyline> polilineas) {
+	public Ruta() {}
+	
+	
+
+	public Ruta(String identificador, String idConductor, int numPuestos, String placa, double xInicio,
+			double yInicio, double xFin, double yFin, String hora) {
 		super();
+		this.identificador = identificador;
 		this.idConductor = idConductor;
 		this.numPuestos = numPuestos;
 		this.placa = placa;
-		this.inicio = inicio;
-		this.fin = fin;
+		this.xInicio = xInicio;
+		this.yInicio = yInicio;
+		this.xFin = xFin;
+		this.yFin = yFin;
 		this.hora = hora;
-		this.polilineas = polilineas;
+		this.polilineas = new Polilineas();
 	}
 
 
+
+	public String getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
 
 	public String getIdConductor() {
 		return idConductor;
 	}
 
-
-
 	public void setIdConductor(String idConductor) {
 		this.idConductor = idConductor;
 	}
-
-
 
 	public int getNumPuestos() {
 		return numPuestos;
 	}
 
-
-
 	public void setNumPuestos(int numPuestos) {
 		this.numPuestos = numPuestos;
 	}
-
-
 
 	public String getPlaca() {
 		return placa;
 	}
 
-
-
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
 
-
-
-	public String getInicio() {
-		return inicio;
+	public double getxInicio() {
+		return xInicio;
 	}
 
-
-
-	public void setInicio(String inicio) {
-		this.inicio = inicio;
+	public void setxInicio(double xInicio) {
+		this.xInicio = xInicio;
 	}
 
-
-
-	public String getFin() {
-		return fin;
+	public double getyInicio() {
+		return yInicio;
 	}
 
-
-
-	public void setFin(String fin) {
-		this.fin = fin;
+	public void setyInicio(double yInicio) {
+		this.yInicio = yInicio;
 	}
 
-
-
-	public String getHora() {
-		return hora;
+	public double getxFin() {
+		return xFin;
 	}
 
-
-
-	public void setHora(String hora) {
-		this.hora = hora;
+	public void setxFin(double xFin) {
+		this.xFin = xFin;
 	}
-	
-	
 
+	public double getyFin() {
+		return yFin;
+	}
 
+	public void setyFin(double yFin) {
+		this.yFin = yFin;
+	}
 
-	public ArrayList<Polyline> getPolilineas() {
+	public Polilineas getPolilineas() {
 		return polilineas;
 	}
 
-
-
-	public void setPolilineas(ArrayList<Polyline> polilineas) {
+	public void setPolilineas(Polilineas polilineas) {
 		this.polilineas = polilineas;
 	}
 
+	
+	
 
 
-	@Override
-	public String toString() {
-		return "Ruta [idConductor=" + idConductor + ", numPuestos=" + numPuestos + ", placa=" + placa + ", inicio="
-				+ inicio + ", fin=" + fin + ", hora=" + hora + "]";
-	}
+	
 
 	
 	

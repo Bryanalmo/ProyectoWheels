@@ -17,6 +17,7 @@
 package com.example.echo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;
@@ -29,7 +30,13 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.Nullable;
 import com.google.api.server.spi.response.UnauthorizedException;
+import com.google.appengine.repackaged.com.google.gson.JsonArray;
+import com.google.appengine.repackaged.com.google.gson.JsonObject;
 
+import endpoints.repackaged.com.google.gson.Gson;
+import endpoints.repackaged.google.type.LatLng;
+import endpoints.repackaged.org.jose4j.json.internal.json_simple.JSONArray;
+import endpoints.repackaged.org.jose4j.json.internal.json_simple.JSONObject;
 import io.swagger.annotations.ApiParam;
 
 /**
@@ -60,35 +67,42 @@ import io.swagger.annotations.ApiParam;
 // [END echo2_api_annotation]
 
 public class Facade {
-	
+	//BRYAN A
 	@ApiParam
 	private ArrayList<Ruta> rutas = new ArrayList<>();
-  
-  // [START echo_method]
-  @ApiMethod(name = "echo2")
-  public Message echo2(Message message, @Named("n") @Nullable Integer n) {
-	  
-    return doEcho(message, n);
-  }
-  // [END echo_method]
- 
+	
   // [START crearRuta]
-  @ApiMethod(name = "crear_ruta")
-  public void crearRuta(@Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
-		  				   @Named("placa") String placa, @Named("ptoSalida") String ptoSalida,
-		  				   @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
-	  Ruta ruta = new Ruta(idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora,
-			  new ArrayList<>()); 
+  @ApiMethod(name = "crearRuta")
+  public void crearRuta(@Named("identificador") String identificador,@Named("idConductor") String idConductor,
+		  				@Named("numeroPuestos") int numeroPuestos, @Named("placa") String placa,
+		  				@Named("xInicio") double xInicio, @Named("yInicio") double yInicio,
+		  				@Named("xFin") double xFin,@Named("yFin") double yFin,@Named("hora") String hora) {
+	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, xInicio, yInicio, xFin, yFin, hora); 
       rutas.add(ruta);
   }
   // [END crearRuta]
   
-//[START buscarRuta]
- @ApiMethod(name = "buscar_ruta")
- public Ruta buscarRuta(@Named("idConductor") String idConductor) {
+//[START agregarPolilinea]
+ @ApiMethod(name = "agregarPolilineas")
+ public void agregarPolilinea(@Named("identificador") String identificador,@Named("polilineaCod") String polilineaCod) {
 	 for (int i = 0; i < rutas.size(); i++) {
-         if (rutas.get(i).getIdConductor().equals(idConductor)) {
+         if (rutas.get(i).getIdentificador().equals(identificador)) {
              Ruta ruta = rutas.get(i);
+             Polilineas polilineas = ruta.getPolilineas();
+             polilineas.addPoliline(polilineaCod);
+         }
+     }
+     
+ }
+ // [END agregarPolilinea]
+
+  
+//[START buscarRuta]
+ @ApiMethod(name = "buscarRuta")
+ public Ruta buscarRutas(@Named("identificador") String identificador) {
+	 for (int j = 0; j < rutas.size(); j++) {
+         if (rutas.get(j).getIdentificador().equals(identificador)) {
+             Ruta ruta = rutas.get(j);
              return ruta;
          }
      }
@@ -96,20 +110,15 @@ public class Facade {
  }
  // [END buscarRuta]
  
-  private Message doEcho(Message message, Integer n) {
-    if (n != null && n >= 0) {
-      StringBuilder sb = new StringBuilder();
-      for (int i = 0; i < n; i++) {
-        if (i > 0) {
-          sb.append(" ");
-        }
-        sb.append(message.getMessage());
-      }
-      message.setMessage(sb.toString());
-    }
-    return message;
-  }
+//[START buscarRuta]
+@ApiMethod(name = "listar_rutas")
+public ArrayList<Ruta> listarRutas() {
+	 return rutas;
+}
+// [END buscarRuta]
   
+ 
+ 
   
 
   /**
