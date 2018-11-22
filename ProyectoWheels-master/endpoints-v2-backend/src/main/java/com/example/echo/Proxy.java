@@ -85,17 +85,15 @@ public class Proxy implements IProxy {
     
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
-    public Usuario confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
+    public double confirmarPermisosUsuario(@Named("correo") String correo, @Named("password") String password) {
+    	double respuesta= 0.5;
     	Usuario user = null;
-    	user.setNombre("Juan");
-    	user.setCorreo("abc");
-    	user.setPassword("123");
     	String correoFijo = "abc";
     	String passwordFijo = "123";
         if(correoFijo.equals(correo) && passwordFijo.equals(password) ){
-           return user;
+           respuesta = 1.0;
         }
-        return user;
+        return respuesta;
     }
   // [END iniciarSesion]
     
