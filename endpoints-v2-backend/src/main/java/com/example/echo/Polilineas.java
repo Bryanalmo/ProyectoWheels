@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 public class Polilineas {
 	
-	private ArrayList<Polyline> polilineas;
+	private ArrayList<Polyline> polilineas = new ArrayList<>();
 	
 	public Polilineas() {}
 
 	public Polilineas(ArrayList<Polyline> polilineas) {
 		super();
 		this.polilineas = polilineas;
+	}
+	
+	public void addPoliline(String polilineaCod) {
+		polilineas.add(new Polyline(polilineaCod));
 	}
 
 	public ArrayList<Polyline> getPolilineas() {

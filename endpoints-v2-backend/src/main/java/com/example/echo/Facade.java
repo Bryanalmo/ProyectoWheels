@@ -75,19 +75,32 @@ public class Facade {
   @ApiMethod(name = "crearRuta")
   public void crearRuta(@Named("identificador") String identificador,@Named("idConductor") String idConductor,
 		  				@Named("numeroPuestos") int numeroPuestos, @Named("placa") String placa,
-		  				@Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino, @Named("hora") String hora,
-		  				Polilineas polilineas) {
-	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora, polilineas); 
+		  				@Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino, @Named("hora") String hora) {
+	  Ruta ruta = new Ruta(identificador,idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora); 
       rutas.add(ruta);
   }
   // [END crearRuta]
+  
+//[START agregarPolilinea]
+ @ApiMethod(name = "agregarPolilineas")
+ public void agregarPolilinea(@Named("identificador") String identificador,@Named("polilineaCod") String polilineaCod) {
+	 for (int i = 0; i < rutas.size(); i++) {
+         if (rutas.get(i).getIdentificador().equals(identificador)) {
+             Ruta ruta = rutas.get(i);
+             Polilineas polilineas = ruta.getPolilineas();
+             polilineas.addPoliline(polilineaCod);
+         }
+     }
+     
+ }
+ // [END agregarPolilinea]
 
   
 //[START buscarRuta]
  @ApiMethod(name = "buscarRuta")
- public Ruta buscarRutas(@Named("idConductor") String idConductor) {
+ public Ruta buscarRutas(@Named("identificador") String identificador) {
 	 for (int j = 0; j < rutas.size(); j++) {
-         if (rutas.get(j).getIdConductor().equals(idConductor)) {
+         if (rutas.get(j).getIdentificador().equals(identificador)) {
              Ruta ruta = rutas.get(j);
              return ruta;
          }

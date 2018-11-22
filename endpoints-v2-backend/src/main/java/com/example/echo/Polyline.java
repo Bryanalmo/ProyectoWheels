@@ -9,20 +9,20 @@ import endpoints.repackaged.google.type.LatLng;
 public class Polyline implements Serializable{
 	
 	
-	ArrayList<LatLngBry> polilinea;
+	String polilinea;
 	
 	public Polyline() {}
 
-	public Polyline(ArrayList<LatLngBry> polilinea) {
+	public Polyline(String polilinea) {
 		super();
 		this.polilinea = polilinea;
 	}
 
-	public ArrayList<LatLngBry> getPolilinea() {
+	public String getPolilinea() {
 		return polilinea;
 	}
 
-	public void setPolilinea(ArrayList<LatLngBry> polilinea) {
+	public void setPolilinea(String polilinea) {
 		this.polilinea = polilinea;
 	}
 

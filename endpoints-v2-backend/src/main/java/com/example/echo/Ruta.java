@@ -13,7 +13,7 @@ public class Ruta {
 	private Polilineas polilineas;
 
 	public Ruta(String identificador, String idConductor, int numPuestos, String placa, String inicio, String fin,
-			String hora, Polilineas polilineas) {
+			String hora) {
 		super();
 		this.identificador = identificador;
 		this.idConductor = idConductor;
@@ -22,7 +22,7 @@ public class Ruta {
 		this.inicio = inicio;
 		this.fin = fin;
 		this.hora = hora;
-		this.polilineas = polilineas;
+		this.polilineas = new Polilineas();
 	}
 	
 
