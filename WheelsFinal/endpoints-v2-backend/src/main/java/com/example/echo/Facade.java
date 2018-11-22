@@ -81,23 +81,24 @@ public class Facade {
 	}
 
 	// [END buscarRuta]
-	//[START modificarRuta]
+	
+	// [START modificarRuta]
+	
 	@ApiMethod(name = "modificar_ruta")
 	public Ruta modificarRuta(@Named("idConductor") String idConductor, @Named("numeroPuestos") int numeroPuestos,
 			@Named("placa") String placa, @Named("ptoSalida") String ptoSalida, @Named("ptoDestino") String ptoDestino,
 			@Named("hora") String hora) {
 		for (int i = 0; i < rutas.size(); i++) {
 			if (rutas.get(i).getIdConductor().equals(idConductor)) {
-				Ruta ruta = rutas.get(i);
-				System.out.println(rutas.get(i).getNumeroPuestos());
+				rutas.get(i).getIdConductor();
+				
 			}
-			rutas.ge
-			ruta = new Ruta(idConductor, numeroPuestos, placa, ptoSalida, ptoDestino, hora,
-					  new ArrayList<>())
+			
 		}
 		return null;
 	}
-	//[END modificarRuta]
+
+	// [END modificarRuta]
 	private Message doEcho(Message message, Integer n) {
 		if (n != null && n >= 0) {
 			StringBuilder sb = new StringBuilder();
