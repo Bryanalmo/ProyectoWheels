@@ -15,6 +15,7 @@
  */
 
 package com.example.echo;
+
 import java.util.ArrayList;
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;
@@ -54,15 +55,17 @@ import io.swagger.annotations.ApiParam;
         )
     }
 // [END_EXCLUDE]
-
-// [END echo3_api_annotation]
 )
+// [END echo3_api_annotation]
 
 public class Proxy implements IProxy {
 
-	
+	@ApiParam
+	private ArrayList<Usuario> usuarios = new ArrayList<>();
 	@ApiParam
     private static Proxy proxy = null;
+	@ApiParam
+    private Facade facade = new Facade();
 
  // [START echo_method]
     @ApiMethod(name = "echo3")
@@ -72,13 +75,18 @@ public class Proxy implements IProxy {
     }
 // [END echo_method]
     
+ // [START proxy]
     public Proxy() {
     }
-   
+ // [END proxy]
+    
+ // [START reemplazarConstructora]
+    @ApiMethod(name = "reemplazar_constructora")
     public static Proxy reemplazarConstructora(){
         if (proxy == null )proxy = new Proxy();
         return proxy;
     }
+ // [END reemplazarConstructora]
     
  // [START iniciarSesion]
     @ApiMethod(name = "iniciar_sesion")
